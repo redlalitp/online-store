@@ -2,9 +2,11 @@ package com.lalitpatil.onlinestore.util;
 
 import com.lalitpatil.onlinestore.exception.PaymentFailedException;
 import com.lalitpatil.onlinestore.exception.ProductNotFoundException;
+import com.lalitpatil.onlinestore.exception.SellerNotFoundException;
 import com.lalitpatil.onlinestore.exception.UserNotFoundException;
 import com.lalitpatil.onlinestore.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
@@ -39,11 +41,11 @@ public class CartOperations {
                     user.getCart().removeProduct(product);
             }
             else {
-                throw new ProductNotFoundException();
+                throw new ProductNotFoundException(HttpStatus.NOT_FOUND, "product not found");
             }
         }
         else {
-            throw new UserNotFoundException();
+            throw new UserNotFoundException(HttpStatus.NOT_FOUND, "User with id: "+userId+" not found");
         }
     }
 
@@ -56,7 +58,7 @@ public class CartOperations {
             }
         }
         else
-            throw new UserNotFoundException();
+            throw new UserNotFoundException(HttpStatus.NOT_FOUND, "User with id: "+userId+" not found");
         return Collections.EMPTY_SET;
     }
 }

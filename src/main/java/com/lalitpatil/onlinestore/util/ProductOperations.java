@@ -6,6 +6,7 @@ import com.lalitpatil.onlinestore.model.ProductCategory;
 import com.lalitpatil.onlinestore.model.Seller;
 import com.lalitpatil.onlinestore.store.ProductCatalog;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
@@ -59,7 +60,7 @@ public class ProductOperations {
             return product.getId();
         }
         else {
-            throw new SellerNotFoundException();
+            throw new SellerNotFoundException(HttpStatus.NOT_FOUND, "Seller with id: "+sellerId+" not found");
         }
     }
 }

@@ -1,4 +1,11 @@
 package com.lalitpatil.onlinestore.exception;
 
-public class SellerNotFoundException extends RuntimeException {
+import org.springframework.http.HttpStatus;
+import org.springframework.lang.Nullable;
+import org.springframework.web.server.ResponseStatusException;
+
+public class SellerNotFoundException extends ResponseStatusException {
+    public SellerNotFoundException(HttpStatus status, @Nullable String reason) {
+        super(status, reason);
+    }
 }

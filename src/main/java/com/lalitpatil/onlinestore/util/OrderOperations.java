@@ -4,6 +4,7 @@ import com.lalitpatil.onlinestore.exception.OrderNotFoundException;
 import com.lalitpatil.onlinestore.model.Order;
 import com.lalitpatil.onlinestore.store.OrderStore;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -14,6 +15,6 @@ public class OrderOperations {
                 return order;
             }
         }
-        throw new OrderNotFoundException();
+        throw new OrderNotFoundException(HttpStatus.NOT_FOUND, "Order with id: "+ id + " not found");
     }
 }

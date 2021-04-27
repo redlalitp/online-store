@@ -6,6 +6,7 @@ import com.lalitpatil.onlinestore.model.*;
 import com.lalitpatil.onlinestore.payment.IPaymentProcessor;
 import com.lalitpatil.onlinestore.store.OrderStore;
 import com.lalitpatil.onlinestore.store.UserStore;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,7 +18,7 @@ public class UserOperations {
                 return existingUser;
             }
         }
-        throw new UserNotFoundException();
+        throw new UserNotFoundException(HttpStatus.NOT_FOUND, "User with id: "+id+" not found");
     }
 
     public Long checkout(long userId) {
@@ -45,7 +46,7 @@ public class UserOperations {
             }
         }
         else {
-            throw new UserNotFoundException();
+            throw new UserNotFoundException(HttpStatus.NOT_FOUND, "User with id: "+userId+" not found");
         }
         return -1L;
     }

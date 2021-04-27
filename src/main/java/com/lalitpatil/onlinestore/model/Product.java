@@ -16,27 +16,20 @@ public class Product {
     @Setter String name;
     @Setter String description;
     @Setter Double price;
-    @Setter boolean isAvailable;
+    @Setter boolean available;
     @Setter ProductCategory category;
-    @Setter Seller seller;
+    @Setter Long sellerId;
 
-    public Product(String name, String description, Double price, boolean isAvailable, ProductCategory category, Seller seller) {
+    public Product() {
         this.id = count.incrementAndGet();
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.isAvailable = isAvailable;
-        this.category = category;
-        this.seller = seller;
     }
 
-    public Product(String name, String description, Double price, boolean isAvailable, ProductCategory category) {
-        this.id = count.incrementAndGet();
+    public Product(String name, String description, Double price, boolean available, ProductCategory category, Long sellerId) {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.isAvailable = isAvailable;
+        this.available = available;
         this.category = category;
-        this.seller = null;
+        this.sellerId = sellerId;
     }
 }

@@ -5,7 +5,6 @@ import com.lalitpatil.onlinestore.model.Product;
 import com.lalitpatil.onlinestore.model.ProductCategory;
 import com.lalitpatil.onlinestore.model.Seller;
 import com.lalitpatil.onlinestore.store.ProductCatalog;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
@@ -52,15 +51,14 @@ public class ProductOperations {
         return product;
     }
 
-    public Long addProductToCatalog(long sellerId, Product product) {
-        Seller seller = this.sellerOperations.getSellerById(sellerId);
+    public Long addProductToCatalog(Product product) {
+        Seller seller = this.sellerOperations.getSellerById(product.getSellerId());
         if(seller != null) {
-            product.setSeller(seller);
             productCatalog.addProduct(product);
             return product.getId();
         }
         else {
-            throw new SellerNotFoundException(HttpStatus.NOT_FOUND, "Seller with id: "+sellerId+" not found");
+            throw new SellerNotFoundException(HttpStatus.NOT_FOUND, "Seller with id: "+product.getSellerId()+" not found");
         }
     }
 }

@@ -1,17 +1,17 @@
 package com.lalitpatil.onlinestore.util;
 
-import com.lalitpatil.onlinestore.exception.PaymentFailedException;
 import com.lalitpatil.onlinestore.exception.ProductNotFoundException;
-import com.lalitpatil.onlinestore.exception.SellerNotFoundException;
 import com.lalitpatil.onlinestore.exception.UserNotFoundException;
-import com.lalitpatil.onlinestore.model.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.lalitpatil.onlinestore.model.Cart;
+import com.lalitpatil.onlinestore.model.Product;
+import com.lalitpatil.onlinestore.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.Set;
 
+@Component
 public class CartOperations {
     UserOperations userOperations;
     ProductOperations productOperations;
@@ -30,6 +30,12 @@ public class CartOperations {
                 userCart.addProduct(product);
                 user.getCart().setEmpty(false);
             }
+            else {
+                throw new ProductNotFoundException(HttpStatus.NOT_FOUND, "Product not found or is not available");
+            }
+        }
+        else {
+            throw new UserNotFoundException(HttpStatus.NOT_FOUND, "User with id: "+userId+" not found");
         }
     }
 

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -16,9 +17,9 @@ public class Order {
     @Setter Set<Product> products;
     @Setter Double totalCost;
     @Setter OrderStatus status;
-    @Setter
-    IPaymentProcessor paymentMethod;
+    @Setter IPaymentProcessor paymentMethod;
     @Setter PaymentStatus paymentStatus;
+    Date dateCreated;
 
     public Order(Set<Product> products, Double totalCost, OrderStatus status, IPaymentProcessor paymentMethod, PaymentStatus paymentStatus) {
         this.products = products;
@@ -26,5 +27,6 @@ public class Order {
         this.status = status;
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
+        this.dateCreated = new Date();
     }
 }

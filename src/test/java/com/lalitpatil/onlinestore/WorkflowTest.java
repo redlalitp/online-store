@@ -75,8 +75,8 @@ public class WorkflowTest {
 
         //Add Product to cart
         assertEquals(true,user1.getCart().isEmpty());
-        cartController.addProductToCart(user1.getId(), 3L);
-        cartController.addProductToCart(user1.getId(), 5L);
+        cartController.addProductToCart(user1.getId(), product1.getId());
+        cartController.addProductToCart(user1.getId(), product3.getId());
         assertEquals(false,user1.getCart().isEmpty());
         assertEquals(true,user2.getCart().isEmpty());
 
@@ -108,23 +108,8 @@ public class WorkflowTest {
 
 
         //seller doesnt exists
-        Product product2 = new Product("product1", "Delicious food", 30.0, true, ProductCategory.Food ,9L);
+        Product product2 = new Product("product1", "Delicious food", 30.0, true, ProductCategory.Food ,91L);
         assertEquals(HttpStatus.NOT_FOUND, catalogController.addProductToCatalog(product2).getStatusCode());
 
-        //Add Product to cart
-        //assertEquals(true,user1.getCart().isEmpty());
-        cartController.addProductToCart(user1.getId(), 2L);
-        cartController.addProductToCart(user1.getId(), 3L);
-        //assertEquals(user1.getCart().isEmpty(), false);
-        //assertEquals(user2.getCart().isEmpty(), true);
-
-        //Get all products added in cart for user 1
-        System.out.println("\n\nAll Products in cart for user1");
-        System.out.println(cartController.getCartProducts(user1.getId()).getBody());
-
-        //Checkout
-        System.out.println("\n\nCheckout the items added in cart");
-        //Long orderId = (Long)cartController.checkout(user1.getId()).getBody();
-        //System.out.println(orderController.getOrderDetails(orderId).getBody());
     }
 }

@@ -1,5 +1,6 @@
 package com.lalitpatil.onlinestore.model;
 
+import com.lalitpatil.onlinestore.payment.IPaymentProcessor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,12 +15,14 @@ public class User {
     @Setter String firstName;
     @Setter String lastName;
     Cart cart;
+    IPaymentProcessor preferredPaymentMethod;
 
-    User(String firstName, String lastName, Cart cart)
+    public User(String firstName, String lastName, Cart cart, IPaymentProcessor preferredPaymentMethod)
     {
         this.id = count.incrementAndGet();
         this.firstName = firstName;
         this.lastName = lastName;
         this.cart = cart;
+        this.preferredPaymentMethod = preferredPaymentMethod;
     }
 }

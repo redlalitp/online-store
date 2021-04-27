@@ -13,7 +13,7 @@ public class Seller {
     long id;
     @Setter String name;
 
-    Seller(String name)
+    public Seller(String name)
     {
         this.id = count.incrementAndGet();
         this.name = name;

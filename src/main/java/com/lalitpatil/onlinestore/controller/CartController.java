@@ -2,6 +2,7 @@ package com.lalitpatil.onlinestore.controller;
 
 import com.lalitpatil.onlinestore.model.Product;
 import com.lalitpatil.onlinestore.util.CartOperations;
+import com.lalitpatil.onlinestore.util.UserOperations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,13 @@ import java.util.Set;
 
 @RestController
 public class CartController {
-    @Autowired
     CartOperations cartOperations;
+    UserOperations userOperations;
+
+    public CartController(CartOperations cartOperations, UserOperations userOperations) {
+        this.cartOperations = cartOperations;
+        this.userOperations = userOperations;
+    }
 
     @RequestMapping(value = "/cart/addProduct", method = RequestMethod.POST)
     public ResponseEntity addProductToCart(@RequestParam long userId,@RequestParam long productId) {
@@ -33,4 +39,12 @@ public class CartController {
         Set<Product> products = this.cartOperations.getCartProductsForUser(userId);
         return ResponseEntity.ok(products);
     }
+
+    @RequestMapping(value = "/cart/checkout", method = RequestMethod.POST)
+    public ResponseEntity checkout(long userId) {
+        Long orderId = this.userOperations.checkout(userId);
+        return ResponseEntity.ok(orderId);
+    }
+
+
 }

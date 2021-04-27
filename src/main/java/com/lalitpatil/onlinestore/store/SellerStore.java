@@ -9,6 +9,10 @@ import java.util.Set;
 
 @Component
 public class SellerStore {
-    @Getter
-    Set<Seller> sellers = new LinkedHashSet<>();
+
+    public static Set<Seller> sellers = new LinkedHashSet<>();
+
+    public void addSeller(Seller seller) {
+        this.sellers.add(seller);
+    }
 }

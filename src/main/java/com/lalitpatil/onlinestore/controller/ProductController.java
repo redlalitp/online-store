@@ -12,18 +12,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @RestController
 public class ProductController {
-    @Autowired
     private UserOperations userOperations;
-    @Autowired
     private ProductOperations productOperations;
+
+    public ProductController(UserOperations userOperations, ProductOperations productOperations) {
+        this.userOperations = userOperations;
+        this.productOperations = productOperations;
+    }
 
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public ResponseEntity getProducts(@RequestParam ProductCategory category) {
-        Set<Product> products = Collections.EMPTY_SET;
+        Set<Product> products;
         if(category != null) {
             products = this.productOperations.getProducts(category);
         }

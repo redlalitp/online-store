@@ -13,10 +13,13 @@ import java.util.stream.Collectors;
 
 @Component
 public class ProductOperations {
-    @Autowired
     ProductCatalog productCatalog;
-    @Autowired
     SellerOperations sellerOperations;
+
+    public ProductOperations(ProductCatalog productCatalog, SellerOperations sellerOperations) {
+        this.productCatalog = productCatalog;
+        this.sellerOperations = sellerOperations;
+    }
 
     public Product getProductById(long id) {
         Product product = null;
@@ -48,10 +51,12 @@ public class ProductOperations {
         return product;
     }
 
-    public void addProductToCatalog(long sellerId, Product product) {
+    public Long addProductToCatalog(long sellerId, Product product) {
         Seller seller = this.sellerOperations.getSellerById(sellerId);
         if(seller != null) {
             product.setSeller(seller);
+            productCatalog.addProduct(product);
+            return product.getId();
         }
         else {
             throw new SellerNotFoundException();

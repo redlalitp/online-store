@@ -3,21 +3,23 @@ This is a spring boot backend application for online store created for Tomtom lo
 
 Following apis are provided:
 
-[Add product to catalog](#1.-Add-product-to-catalog)
+[Add product to catalog](#1.-add-product-to-catalog)
 <br>
-[Fetch products from catalog](#2.-Fetch-products-from-catalog)
+[Fetch products from catalog](#2.-fetch-products-from-catalog)
 <br>
-[Get Product Details](#3.-Get-Product-Details)
+[Get Product Details](#3.-get-product-details)
 <br>
-[Add product to cart](#4.-Add-product-to-cart)
+[Add product to cart](#4.-add-product-to-cart)
 <br>
-[Remove product from cart](#5.--Remove-product-from-cart)
+[Remove product from cart](#5.--remove-product-from-cart)
 <br>
-[Get cart items for user](#6.-Get-cart-items-for-user)
+[Get cart items for user](#6.-get-cart-items-for-user)
 <br>
-[Place and order/Checkout](#7.-Place-and-order/Checkout)
+[Place and order/Checkout](#7.-place-and-order/Checkout)
 <br>
-[Get Order Details](#8.-Get-Order-Details)
+[Get Order Details](#8.-get-order-details)
+<br>
+<br>
 #1. Add product to catalog
    <br>
    Endpoint: `localhost:8080/catalog/addProduct`

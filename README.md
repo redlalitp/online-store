@@ -1,26 +1,37 @@
 # online-store
-This is a spring boot backend application for online store created for Tomtom low level design round.
+This is a spring boot backend application for online store.
 
 Following apis are provided:
 
-[Add product to catalog](#1.-add-product-to-catalog)
+1. [Add product to catalog](#1.-add-product-to-catalog)
 <br>
-[Fetch products from catalog](#2.-fetch-products-from-catalog)
+
+2. [Fetch products from catalog](#2.-fetch-products-from-catalog)
 <br>
-[Get Product Details](#3.-get-product-details)
+
+3. [Get Product Details](#3.-get-product-details)
 <br>
-[Add product to cart](#4.-add-product-to-cart)
+
+4. [Add product to cart](#4.-add-product-to-cart)
 <br>
-[Remove product from cart](#5.--remove-product-from-cart)
+
+5. [Remove product from cart](#5.--remove-product-from-cart)
 <br>
-[Get cart items for user](#6.-get-cart-items-for-user)
+
+6. [Get cart items for user](#6.-get-cart-items-for-user)
 <br>
-[Place and order/Checkout](#7.-place-and-order/Checkout)
+
+7. [Place and order/Checkout](#7.-place-and-order/Checkout)
 <br>
-[Get Order Details](#8.-get-order-details)
+
+8. [Get Order Details](#8.-get-order-details)
+<br>
+
+<br>
+[Possible Enhancements](#possible-enhancements)
 <br>
 <br>
-#1. Add product to catalog
+# 1. Add product to catalog
    <br>
    Endpoint: `localhost:8080/catalog/addProduct`
    <br>
@@ -56,7 +67,7 @@ Following apis are provided:
    <br>
    <br>
 
-#2. Fetch products from catalog
+# 2. Fetch products from catalog
    <br>
    Endpoint: `localhost:8080/products`
    <br>
@@ -82,7 +93,7 @@ Following apis are provided:
    <br>
    <br>
     
-#3. Get Product Details
+# 3. Get Product Details
    <br>
    Endpoint: `localhost:8080/product/1`
    <br>
@@ -109,7 +120,7 @@ Following apis are provided:
    <br>
    <br>
    
-#4. Add product to cart
+# 4. Add product to cart
    <br>
    Endpoint: `localhost:8080/cart/user/1/addProduct/1`
    <br>
@@ -126,7 +137,7 @@ Following apis are provided:
    <br>
    Status: `200 OK`
    <br>
-   Body: ``
+   Body: 
    <br>
    <br>
    Status: `404 NOT FOUND`
@@ -138,7 +149,7 @@ Following apis are provided:
    <br>
    <br>
    
-#5.  Remove product from cart
+# 5.  Remove product from cart
     <br>
     Endpoint: `localhost:8080/cart/user/1/removeProduct/1`
     <br>
@@ -167,7 +178,7 @@ Following apis are provided:
     <br>
     <br>
     
-#6. Get cart items for user
+# 6. Get cart items for user
    <br>
    Endpoint: `localhost:8080/cart/user/1`
    <br>
@@ -184,7 +195,7 @@ Following apis are provided:
    <br>
    Status: `200 OK`
    <br>
-   Body: ``
+   Body: 
    <br>
    <br>
    Status: `404 NOT FOUND`
@@ -196,7 +207,7 @@ Following apis are provided:
    <br>
    <br>
    
-#7. Place and order/Checkout
+# 7. Place and order/Checkout
    <br>
    Endpoint: `localhost:8080/cart/user/1/checkout`
    <br>
@@ -213,7 +224,7 @@ Following apis are provided:
    <br>
    Status: `200 OK`
    <br>
-   Body: ``
+   Body: 
    <br>
    <br>
    Status: `404 NOT FOUND`
@@ -227,7 +238,7 @@ Following apis are provided:
    <br>
    <br>
    
-#8. Get Order Details
+# 8. Get Order Details
    <br>
    Endpoint: `localhost:8080/order/0`
    <br>
@@ -279,3 +290,12 @@ Following apis are provided:
    <br>
    <br>
    <br>
+   
+   
+# Possible Enhancements
+
+1. Current design doesnt have session concept. In a practical system, we would have a session and cart will be per session per user.
+2. Concurrency issues are not handlled here, but with database implemetation it could be handled along with synchronous java code
+3. Products can be returned by price range.
+4. User should be able to select payment method at while checking out
+5. If we want to design this on large scale then we can turn this acrhitecture into microservice architechture

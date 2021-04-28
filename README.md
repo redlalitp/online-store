@@ -2,7 +2,23 @@
 This is a spring boot backend application for online store created for Tomtom low level design round.
 
 Following apis are provided:
-1. Add product to catalog:
+
+[Add product to catalog](#1.-Add-product-to-catalog)
+<br>
+[Fetch products from catalog](#2.-Fetch-products-from-catalog)
+<br>
+[Get Product Details](#3.-Get-Product-Details)
+<br>
+[Add product to cart](#4.-Add-product-to-cart)
+<br>
+[Remove product from cart](#5.--Remove-product-from-cart)
+<br>
+[Get cart items for user](#6.-Get-cart-items-for-user)
+<br>
+[Place and order/Checkout](#7.-Place-and-order/Checkout)
+<br>
+[Get Order Details](#8.-Get-Order-Details)
+#1. Add product to catalog
    <br>
    Endpoint: `localhost:8080/catalog/addProduct`
    <br>
@@ -37,7 +53,8 @@ Following apis are provided:
    <br>
    <br>
    <br>
-2. Fetch products from catalog
+
+#2. Fetch products from catalog
    <br>
    Endpoint: `localhost:8080/products`
    <br>
@@ -63,7 +80,7 @@ Following apis are provided:
    <br>
    <br>
     
-3. Get Product Details
+#3. Get Product Details
    <br>
    Endpoint: `localhost:8080/product/1`
    <br>
@@ -90,7 +107,7 @@ Following apis are provided:
    <br>
    <br>
    
-4. Add product to cart
+#4. Add product to cart
    <br>
    Endpoint: `localhost:8080/cart/user/1/addProduct/1`
    <br>
@@ -119,7 +136,7 @@ Following apis are provided:
    <br>
    <br>
    
-5.  Remove product from cart
+#5.  Remove product from cart
     <br>
     Endpoint: `localhost:8080/cart/user/1/removeProduct/1`
     <br>
@@ -136,7 +153,7 @@ Following apis are provided:
     <br>
     Status: `200 OK`
     <br>
-    Body: ``
+    Body: 
     <br>
     <br>
     Status: `404 NOT FOUND`
@@ -148,7 +165,7 @@ Following apis are provided:
     <br>
     <br>
     
-6. Get cart items for user
+#6. Get cart items for user
    <br>
    Endpoint: `localhost:8080/cart/user/1`
    <br>
@@ -177,7 +194,7 @@ Following apis are provided:
    <br>
    <br>
    
-7. Place and order/Checkout
+#7. Place and order/Checkout
    <br>
    Endpoint: `localhost:8080/cart/user/1/checkout`
    <br>
@@ -208,7 +225,7 @@ Following apis are provided:
    <br>
    <br>
    
-8. Get Order Details
+#8. Get Order Details
    <br>
    Endpoint: `localhost:8080/order/0`
    <br>

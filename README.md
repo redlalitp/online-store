@@ -4,33 +4,27 @@ This is a spring boot backend application for online store.
 Following apis are provided:
 
 1. [Add product to catalog](#1.-add-product-to-catalog)
-<br>
 
 2. [Fetch products from catalog](#2.-fetch-products-from-catalog)
-<br>
 
 3. [Get Product Details](#3.-get-product-details)
-<br>
 
 4. [Add product to cart](#4.-add-product-to-cart)
-<br>
 
 5. [Remove product from cart](#5.--remove-product-from-cart)
-<br>
 
 6. [Get cart items for user](#6.-get-cart-items-for-user)
-<br>
 
 7. [Place and order/Checkout](#7.-place-and-order/Checkout)
-<br>
 
 8. [Get Order Details](#8.-get-order-details)
-<br>
 
 <br>
+
 [Possible Enhancements](#possible-enhancements)
+
 <br>
-<br>
+
 # 1. Add product to catalog
    <br>
    Endpoint: `localhost:8080/catalog/addProduct`
